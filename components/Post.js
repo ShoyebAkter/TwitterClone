@@ -1,4 +1,3 @@
-import React from 'react';
 
 
 const style = {
@@ -15,12 +14,29 @@ const style = {
     footerIcon: `rounded-full text-lg p-2`,
   }
 
-const Post = () => {
-    return (
-        <div>
-            Post
-        </div>
-    );
-};
+  const Post=({
+      diplayName,
+      userName,
+      text,
+      avatar,
+      timestamp,
+      isProfileImageNft,
+  })=>{
+      return (
+          <div className={style.wrapper}>
+            <div>
+                <img
+                src={avatar}
+                alt={userName}
+                className={
+                    isProfileImageNft
+                    ? `${style.profileImage} smallHex`
+                    : style.profileImage
+                }
+                ></img>
+            </div>
+          </div>
+      )
+  }
 
-export default Post;
+  export default Post
