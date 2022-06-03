@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 const style = {
@@ -16,14 +16,28 @@ const style = {
   }
 
 const TweetBox = () => {
+    const [tweetMessage,setTweetMessage]=useState('')
+
+    console.log(tweetMessage)
     return (
         <div className={style.wrapper}>
             <div className={style.tweetBoxLeft}>
                 <img
-                src='https://www.facebook.com/photo.php?fbid=3499300786962997&set=pb.100006493302398.-2207520000..&type=3'
+                src="https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ"
                 alt="profile image"
                 className={style.profileImage}
                 />
+            </div>
+            <div className={style.tweetBoxRight}>
+                <form>
+                    <textarea
+                    className={style.inputField}
+                    placeholder="What's happening?"
+                    value={tweetMessage}
+                    onChange={(e)=>setTweetMessage(e.target.value)}
+                    >
+                    </textarea>
+                </form>
             </div>
         </div>
     );
