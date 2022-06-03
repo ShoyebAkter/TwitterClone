@@ -7,6 +7,45 @@ const style = {
     headerTitle: `text-xl font-bold`,
   }
 
+  const tweets=[
+      {
+          displayName: 'Shoyeb',
+          userName:'0x8Cd390f697ffDc176f1870D2F3883883698434fD',
+          avatar:
+          '',
+          text: 'gm',
+          isProfileImageNft:false,
+          timestamp: '2020-06-01T12:00:00.000Z'
+      },
+      {
+          displayName: 'Shoyeb',
+          userName:'0x8Cd390f697ffDc176f1870D2F3883883698434fD',
+          avatar:
+          '',
+          text: 'gm',
+          isProfileNft:false,
+          timestamp: '2020-06-01T12:00:00.000Z'
+      },
+      {
+          displayName: 'Shoyeb',
+          userName:'0x8Cd390f697ffDc176f1870D2F3883883698434fD',
+          avatar:
+          '',
+          text: 'gm',
+          isProfileNft:false,
+          timestamp: '2020-06-01T12:00:00.000Z'
+      },
+      {
+          displayName: 'Shoyeb',
+          userName:'0x8Cd390f697ffDc176f1870D2F3883883698434fD',
+          avatar:
+          '',
+          text: 'gm',
+          isProfileNft:false,
+          timestamp: '2020-06-01T12:00:00.000Z'
+      }
+  ]
+
 function Feed() {
     return(
         <div className={`${style.wrapper}`}>
@@ -15,6 +54,19 @@ function Feed() {
                 <BsStars/>
             </div>
             <TweetBox/>
+            {
+                tweets.map((tweet,index)=>{
+                    <Post
+                    key={index}
+                    displayName={tweet.displayName}
+                    userName={tweet.userName}
+                    avatar={tweet.avatar}
+                    text={tweet.text}
+                    isProfileImageNft={tweet.isProfileImageNft}
+                    timestamp={tweet.timestamp}
+                    />
+                })
+            }
         </div>
     )
 }
