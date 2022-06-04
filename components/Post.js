@@ -14,22 +14,17 @@ const style = {
     footerIcon: `rounded-full text-lg p-2`,
   }
 
-  const Post=({
-      diplayName,
-      userName,
-      text,
-      avatar,
-      timestamp,
-      isProfileImageNft,
-  })=>{
+  const Post=({tweet })=>{
+    
       return (
+          
           <div className={style.wrapper}>
             <div>
                 <img
-                src={avatar}
-                alt={userName}
+                src={tweet.avatar}
+                alt={tweet.userName}
                 className={
-                    isProfileImageNft
+                    tweet.isProfileImageNft
                     ? `${style.profileImage} smallHex`
                     : style.profileImage
                 }
