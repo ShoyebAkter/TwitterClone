@@ -24,7 +24,7 @@ const style = {
                 src={tweet.avatar}
                 alt={tweet.userName}
                 className={
-                    tweet.isProfileImageNft
+                    true
                     ? `${style.profileImage} smallHex`
                     : style.profileImage
                 }
