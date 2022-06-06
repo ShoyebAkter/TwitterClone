@@ -1,3 +1,4 @@
+import { BsFillPatchCheckFill } from "react-icons/bs";
 
 
 const style = {
@@ -15,6 +16,7 @@ const style = {
   }
 
   const Post=({tweet })=>{
+      const {isProfileImageNft}=tweet;
     
       return (
           
@@ -24,11 +26,24 @@ const style = {
                 src={tweet.avatar}
                 alt={tweet.userName}
                 className={
-                    true
+                    tweet.isProfileImageNft
                     ? `${style.profileImage} smallHex`
                     : style.profileImage
                 }
                 ></img>
+            </div>
+            <div className={style.postMain}>
+                <div>
+                    <span className={style.headerDetails}>
+                        <span className={style.name}>{tweet.displayName}</span>
+                        {isProfileImageNft && (
+                            <span className={style.verified}>
+                                <BsFillPatchCheckFill/>
+                            </span>
+                        )}
+                    </span>
+                    <span className={style.handleAndTimeAgo}></span>
+                </div>
             </div>
           </div>
       )
