@@ -19,7 +19,7 @@ function Feed() {
                 'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
             text: 'gm',
             isProfileImageNft: false,
-            timestamp: '2020-06-01T12:00:00.000Z'
+            timestamp: '2022-05-01T12:00:00.000Z'
         },
         {
             displayName: 'Shoyeb',
@@ -28,7 +28,7 @@ function Feed() {
                 'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
             text: 'gm',
             isProfileNft: false,
-            timestamp: '2020-06-01T12:00:00.000Z'
+            timestamp: '2021-04-01T12:00:00.000Z'
         },
         {
             displayName: 'Shoyeb',
@@ -37,7 +37,7 @@ function Feed() {
                 'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
             text: 'gm',
             isProfileNft: false,
-            timestamp: '2020-06-01T12:00:00.000Z'
+            timestamp: '2022-05-01T12:00:00.000Z'
         },
         {
             displayName: 'Shoyeb',
@@ -46,7 +46,7 @@ function Feed() {
                 'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
             text: 'gm',
             isProfileNft: false,
-            timestamp: '2020-06-01T12:00:00.000Z'
+            timestamp: '2022-02-14T12:00:00.000Z'
         }
     ]
 

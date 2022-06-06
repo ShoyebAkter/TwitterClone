@@ -1,5 +1,5 @@
 import { BsFillPatchCheckFill } from "react-icons/bs";
-
+import { format } from "timeago.js";
 
 const style = {
     wrapper: `flex p-3 border-b border-[#38444d]`,
@@ -16,7 +16,8 @@ const style = {
   }
 
   const Post=({tweet })=>{
-      const {isProfileImageNft}=tweet;
+      const {isProfileImageNft,userName,timeStamp,text}=tweet;
+      const userNameSlice=`${userName.slice(0,4)}...${userName.slice(-4)}`
     
       return (
           
@@ -41,9 +42,12 @@ const style = {
                                 <BsFillPatchCheckFill/>
                             </span>
                         )}
+                        <span className={style.handleAndTimeAgo}>
+                        @{userNameSlice} • {format(new Date(timeStamp).getTime())}
+                        </span>
                     </span>
-                    <span className={style.handleAndTimeAgo}></span>
-                </div>
+                    <div className={style.tweet}>{text}</div>
+                </div> 
             </div>
           </div>
       )
