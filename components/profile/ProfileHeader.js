@@ -8,9 +8,9 @@ const style = {
     primary: `bg-transparent outline-none font-bold`,
     secondary: `text-[#8899a6] text-xs`,
     backButton: `text-3xl cursor-pointer mr-2 rounded-full hover:bg-[#313b44] p-1`,
-    coverPhotoContainer: `flex items-center justify-center h-[15vh] overflow-hidden`,
+    coverPhotoContainer: `flex items-center justify-center h-[20vh] overflow-hidden`,
     coverPhoto: `object-cover h-full w-full`,
-    profileImageContainer: `w-full h-[6rem] rounded-full mt-[-3rem] mb-2 flex justify-start items-center px-3 flex justify-between`,
+    profileImageContainer: `w-full h-[6rem] rounded-full mt-[-2rem] mb-2 flex justify-start items-center px-3 flex justify-between`,
     profileImage: `object-cover rounded-full h-full`,
     profileImageNft: `object-cover h-full`,
     profileImageMint: `bg-white text-black px-3 py-1 rounded-full hover:bg-[#8899a6] cursor-pointer`,
@@ -21,7 +21,10 @@ const style = {
 
 
 const ProfileHeader = () => {
-    const router = useRouter()
+    const router = useRouter();
+
+    const isProfileImageNft = false;
+
     return (
         <div className={style.wrapper}>
             <div className={style.header}>
@@ -32,7 +35,23 @@ const ProfileHeader = () => {
                     <div className={style.primary}>Shoyeb Akter</div>
                     <div className={style.secondary}>4 Tweets</div>
                 </div>
-
+            </div>
+            <div className={style.coverPhotoContainer}>
+                <img
+                    src='https://www.teahub.io/photos/full/28-289473_twitter-cover-photo-45-stars.jpg'
+                    alt='cover'
+                    className={style.coverPhoto}
+                />
+            </div>
+            <div className={style.profileImageContainer}>
+                <div
+                    className={isProfileImageNft ? 'hex' : style.profileImageContainer}>
+                    <img
+                        src='https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk'
+                        alt='shoyeb'
+                        className={isProfileImageNft ? style.profileImageNft : style.profileImage}
+                    />
+                </div>
             </div>
         </div>
     )
