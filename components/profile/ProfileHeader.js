@@ -24,6 +24,7 @@ const ProfileHeader = () => {
     const router = useRouter();
 
     const isProfileImageNft = false;
+    const currentAccount = '0x8Cd390f697ffDc176f1870D2F3883883698434fD';
 
     return (
         <div className={style.wrapper}>
@@ -52,6 +53,25 @@ const ProfileHeader = () => {
                         className={isProfileImageNft ? style.profileImageNft : style.profileImage}
                     />
                 </div>
+            </div>
+            <div className={style.details}>
+                <div>
+                    <div className={style.primary}>Shoyeb Akter</div>
+                </div>
+                <div className={style.secondary}>
+                    {
+                        currentAccount &&
+                        <>
+                            @{currentAccount.slice(0, 8)}...{currentAccount.slice(37)}
+                        </>
+                    }
+                </div>
+            </div>
+            <div className={style.nav}>
+                <div className={style.activeNav}>Tweets</div>
+                <div>Tweets & Replies</div>
+                <div>Media</div>
+                <div>Likes</div>
             </div>
         </div>
     )
