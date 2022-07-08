@@ -17,20 +17,25 @@ const style = {
     details: `px-3`,
     nav: `flex justify-around mt-4 mb-2 text-xs font-semibold text-[#8899a6]`,
     activeNav: `text-white`,
-  }
+}
 
 
 const ProfileHeader = () => {
-    const router=useRouter()
-  return (
-    <div className={style.wrapper}>
-        <div className={style.header}>
-            <div onClick={()=> router.push('/')} className={style.backButton}>
-                <BsArrowLeftShort/>
+    const router = useRouter()
+    return (
+        <div className={style.wrapper}>
+            <div className={style.header}>
+                <div onClick={() => router.push('/')} className={style.backButton}>
+                    <BsArrowLeftShort />
+                </div>
+                <div className={style.details}>
+                    <div className={style.primary}>Shoyeb Akter</div>
+                    <div className={style.secondary}>4 Tweets</div>
+                </div>
+
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ProfileHeader
