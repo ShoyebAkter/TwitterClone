@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { VscTwitter } from 'react-icons/vsc'
 import { FiBell, FiMoreHorizontal } from 'react-icons/fi'
 import SidebarOption from './SidebarOption'
@@ -31,7 +33,8 @@ const style = {
 
 
 function Sidebar({ initialSelectedIcon = 'Home' }) {
-    const { selected, setSelected } = useState(initialSelectedIcon)
+    const [selected, setSelected ] = useState(initialSelectedIcon)
+    // console.log(selected)
     return (
         <div className={style.wrapper}>
             <div className={style.twitterIconContainer}>

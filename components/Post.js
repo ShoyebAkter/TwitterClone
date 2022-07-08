@@ -5,7 +5,7 @@ import { FiShare } from "react-icons/fi";
 import { format } from "timeago.js";
 
 const style = {
-    wrapper: `flex p-3 border-b border-[#38444d]`,
+    wrapper: `flex p-3 w-full border-b border-[#38444d]`,
     profileImage: `rounded-full h-[40px] w-[40px] object-cover`,
     postMain: `flex-1 px-4`,
     headerDetails: `flex items-center`,

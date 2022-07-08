@@ -31,7 +31,7 @@ const TweetBox = () => {
         <div className={style.wrapper}>
             <div className={style.tweetBoxLeft}>
                 <img
-                    src="https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ"
+                    src="https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk"
                     alt="profile image"
                     className={style.profileImage}
                 />

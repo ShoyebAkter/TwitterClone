@@ -16,7 +16,7 @@ function Feed() {
             displayName: 'Shoyeb',
             userName: '0x8Cd390f697ffDc176f1870D2F3883883698434fD',
             avatar:
-                'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
+                'https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk',
             text: 'gm',
             isProfileImageNft: false,
             timestamp: '2022-05-01T12:00:00.000Z'
@@ -25,7 +25,7 @@ function Feed() {
             displayName: 'Shoyeb',
             userName: '0x8Cd390f697ffDc176f1870D2F3883883698434fD',
             avatar:
-                'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
+                'https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk',
             text: 'gm',
             isProfileNft: false,
             timestamp: '2021-04-01T12:00:00.000Z'
@@ -34,7 +34,7 @@ function Feed() {
             displayName: 'Shoyeb',
             userName: '0x8Cd390f697ffDc176f1870D2F3883883698434fD',
             avatar:
-                'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
+                'https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk',
             text: 'gm',
             isProfileNft: false,
             timestamp: '2022-05-01T12:00:00.000Z'
@@ -43,7 +43,7 @@ function Feed() {
             displayName: 'Shoyeb',
             userName: '0x8Cd390f697ffDc176f1870D2F3883883698434fD',
             avatar:
-                'https://media-exp1.licdn.com/dms/image/C5603AQGvm80VWkz21w/profile-displayphoto-shrink_800_800/0/1641269680921?e=1659571200&v=beta&t=yhSFupR1mHO3l0g_5HcA3mk3dupxQSX7w9XdncmZYnQ',
+                'https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk',
             text: 'gm',
             isProfileNft: false,
             timestamp: '2022-02-14T12:00:00.000Z'
@@ -52,7 +52,7 @@ function Feed() {
 
 
     return (
-        <div className={`${style.wrapper}`}>
+        <div className={style.wrapper}>
             <div className={style.header}>
                 <div className={style.headerTitle}>Home</div>
                 <BsStars />
