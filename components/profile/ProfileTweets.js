@@ -8,7 +8,7 @@ const style = {
 
 const ProfileTweets = () => {
   return (
-    <div>ProfileTweets</div>
+    <div>ProfileTweets  My tweets</div>
   )
 }
 
