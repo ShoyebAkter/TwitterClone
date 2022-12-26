@@ -46,7 +46,7 @@ const TweetBox = () => {
                     />
                     <div className={style.formLowerContainer}>
                         <div className={style.iconsContainer}>
-                            <BsCardImage className={style.icon} />
+                            <BsCardImage className={style.icon}/>
                             <RiFileGifLine className={style.icon} />
                             <RiBarChartHorizontalFill className={style.icon} />
                             <BsEmojiSmile className={style.icon} />

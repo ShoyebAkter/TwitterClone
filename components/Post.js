@@ -62,7 +62,7 @@ const Post = ({ tweet }) => {
                     <div className={style.tweet}>{text}</div>
                     {loveClicked > 0 &&
                         <div className="d-flex">
-                            {loveClicked} people <AiOutlineHeart /> on your post
+                            {loveClicked} people <AiOutlineHeart /> your post
                         </div>
 
                     }
@@ -79,13 +79,15 @@ const Post = ({ tweet }) => {
                     }} className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`} >
                         <FaRegComment />
                     </div>
-                    <div className={`${style.footerIcon} hover:text-[#03ba7c] hover:bg-[#1b393b]`}>
+                    <div  className={`${style.footerIcon} hover:text-[#03ba7c] hover:bg-[#1b393b]`}>
+                        {/* tweet change kora */}
                         <FaRetweet />
                     </div>
                     <div onClick={() => showReaction()} className={`${style.footerIcon} hover:text-[#f91c80] hover:bg-[#39243c]`}>
                         <AiOutlineHeart />
                     </div>
                     <div className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`}>
+                        {/* share post */}
                         <FiShare />
                     </div>
                 </div>
