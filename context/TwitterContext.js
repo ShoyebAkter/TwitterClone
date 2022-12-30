@@ -62,7 +62,7 @@ export const TwitterProvider = ({ children }) => {
         }
     }
 
-    const createUserAccount = async (userAddress = currentAccount) => {
+    const createUserAccount = async(userAddress = currentAccount) => {
         if (!window.ethereum) return setAppStatus('noMetaMask')
         try {
           const userDoc = {
@@ -74,8 +74,8 @@ export const TwitterProvider = ({ children }) => {
               'https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-download-img-1.jpg.twimg.1920.jpg',
             walletAddress: userAddress,
           }
-          console.log(userDoc);
-          client.createIfNotExists(userDoc)
+        //   console.log(userDoc);
+          await client.createIfNotExists(userDoc)
           
           setAppStatus('connected')
         } catch (error) {

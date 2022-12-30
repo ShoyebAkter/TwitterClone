@@ -3,7 +3,9 @@ import { BsCardImage, BsEmojiSmile } from 'react-icons/bs'
 import { RiFileGifLine, RiBarChartHorizontalFill } from 'react-icons/ri'
 import { IoMdCalendar } from 'react-icons/io'
 import { MdOutlineLocationOn } from 'react-icons/md'
-
+import { client } from '../../lib/client';
+import { useContext } from 'react';
+import { TwitterContext } from '../../context/TwitterContext';
 
 const style = {
     wrapper: `px-4 flex flex-row border-b border-[#38444d] pb-4`,
@@ -21,17 +23,48 @@ const style = {
 
 const TweetBox = () => {
     const [tweetMessage, setTweetMessage] = useState('')
-
+    const {currentAccount}=useContext(TwitterContext)
     const postTweet = (event) => {
         event.preventDefault();
-        console.log(tweetMessage)
+        
+        if(!tweetMessage) return
+        const tweetId=`${currentAccount}_${Date.now()}`
+
+        const tweetDoc = {
+            _type: 'tweets',
+            _id: tweetId,
+            tweet: tweetMessage,
+            timestamp: new Date(Date.now()).toISOString(),
+            author: {
+              _key: tweetId,
+              _ref: currentAccount,
+              _type: 'reference',
+            },
+          }
+          client.createIfNotExists(tweetDoc)
+
+          client
+      .patch(currentAccount)
+      .setIfMissing({ tweets: [] })
+      .insert('after', 'tweets[-1]', [
+        {
+          _key: tweetId,
+          _ref: tweetId,
+          _type: 'reference',
+        },
+      ])
+      .commit()
+
+    //  fetchTweets()
+    setTweetMessage('')
     }
 
+    
     return (
         <div className={style.wrapper}>
             <div className={style.tweetBoxLeft}>
                 <img
-                    src="https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk"
+                    src="https://media.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1677715200&v=beta&t=7TLdbhXsPvyV2mPyTr2KahphtGrvTuWicqJpEGnDYN0"
                     alt="profile image"
                     className={style.profileImage}
                 />
