@@ -24,7 +24,7 @@ const style = {
 const TweetBox = () => {
     const [tweetMessage, setTweetMessage] = useState('')
     const {currentAccount}=useContext(TwitterContext)
-    const postTweet = (event) => {
+    const postTweet = async(event) => {
         event.preventDefault();
         
         if(!tweetMessage) return
@@ -41,9 +41,9 @@ const TweetBox = () => {
               _type: 'reference',
             },
           }
-          client.createIfNotExists(tweetDoc)
+          await client.createIfNotExists(tweetDoc)
 
-          client
+          await client
       .patch(currentAccount)
       .setIfMissing({ tweets: [] })
       .insert('after', 'tweets[-1]', [
