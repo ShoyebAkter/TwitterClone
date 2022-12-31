@@ -1,6 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { BsArrowLeftShort } from 'react-icons/bs'
+import { useEffect, useContext, useState } from 'react'
+import { TwitterContext } from '../../context/TwitterContext'
 
 const style = {
     wrapper: `border-[#38444d] border-b`,
@@ -22,9 +24,7 @@ const style = {
 
 const ProfileHeader = () => {
     const router = useRouter();
-
-    const isProfileImageNft = false;
-    const currentAccount = '0x8Cd390f697ffDc176f1870D2F3883883698434fD';
+    const { currentUser,currentAccount } = useContext(TwitterContext)
 
     return (
         <div className={style.wrapper}>
@@ -33,30 +33,30 @@ const ProfileHeader = () => {
                     <BsArrowLeftShort />
                 </div>
                 <div className={style.details}>
-                    <div className={style.primary}>Shoyeb Akter</div>
-                    <div className={style.secondary}>4 Tweets</div>
+                    <div className={style.primary}>{currentUser.name}</div>
+                    <div className={style.secondary}>{currentUser.tweets?.length} Tweets</div>
                 </div>
             </div>
             <div className={style.coverPhotoContainer}>
                 <img
-                    src='https://www.teahub.io/photos/full/28-289473_twitter-cover-photo-45-stars.jpg'
+                    src={currentUser.coverImage}
                     alt='cover'
                     className={style.coverPhoto}
                 />
             </div>
             <div className={style.profileImageContainer}>
                 <div
-                    className={isProfileImageNft ? 'hex' : style.profileImageContainer}>
+                    className={currentUser.isProfileImageNft ? 'hex' : style.profileImageContainer}>
                     <img
-                        src='https://media-exp1.licdn.com/dms/image/C5603AQGF0BgXZMc8KA/profile-displayphoto-shrink_200_200/0/1656483439417?e=1662595200&v=beta&t=WuXBqXwxXgbG-OgV3AGw5xGTepWrFfWXip5tEnUdCBk'
+                        src={currentUser.profileImage}
                         alt='shoyeb'
-                        className={isProfileImageNft ? style.profileImageNft : style.profileImage}
+                        className={currentUser.isProfileImageNft ? style.profileImageNft : style.profileImage}
                     />
                 </div>
             </div>
             <div className={style.details}>
                 <div>
-                    <div className={style.primary}>Shoyeb Akter</div>
+                    <div className={style.primary}>{currentUser.name}</div>
                 </div>
                 <div className={style.secondary}>
                     {
