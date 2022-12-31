@@ -19,7 +19,7 @@ export const TwitterProvider = ({ children }) => {
     useEffect(() => {
         if (!currentAccount && appStatus == 'connected') return
         getCurrentUserDetails(currentAccount)
-        // fetchTweets()
+        fetchTweets()
       }, [currentAccount, appStatus])
 
 
@@ -92,6 +92,14 @@ export const TwitterProvider = ({ children }) => {
         }
       }
 
+      const getNftProfileImage = async (imageUri, isNft) => {
+        if (isNft) {
+          return `https://gateway.pinata.cloud/ipfs/${imageUri}`
+        } else if (!isNft) {
+          return imageUri
+        }
+      }
+
 
       const fetchTweets=async()=>{
         const query = `
@@ -106,12 +114,13 @@ export const TwitterProvider = ({ children }) => {
     setTweets([])
 
     sanityResponse.forEach(async item => {
-        // const profileImageUrl = await getNftProfileImage(
-        //   item.author.profileImage,
-        //   item.author.isProfileImageNft,
-        // )
-
-        const newItem = {
+        const profileImageUrl = await getNftProfileImage(
+          item.author.profileImage,
+          item.author.isProfileImageNft,
+        )
+  
+        if (item.author.isProfileImageNft) {
+          const newItem = {
             tweet: item.tweet,
             timestamp: item.timestamp,
             author: {
@@ -121,8 +130,12 @@ export const TwitterProvider = ({ children }) => {
               isProfileImageNft: item.author.isProfileImageNft,
             },
           }
+  
           setTweets(prevState => [...prevState, newItem])
-    })
+        } else {
+          setTweets(prevState => [...prevState, item])
+        }
+      })
       }
 
       const getCurrentUserDetails = async (userAccount = currentAccount) =>{
@@ -137,13 +150,18 @@ export const TwitterProvider = ({ children }) => {
           walletAddress
         }
       `
-      console.log("curretnuser");
       const response = await client.fetch(query)
+      const profileImageUri = await getNftProfileImage(
+        response[0].profileImage,
+        response[0].isProfileImageNft,
+      )
+      console.log("curretnuser");
+      
       console.log("hi",currentUser);
       setCurrentUser({
         tweets: response[0].tweets,
         name: response[0].name,
-        // profileImage: profileImageUri,
+        profileImage: profileImageUri,
         walletAddress: response[0].walletAddress,
         coverImage: response[0].coverImage,
         isProfileImageNft: response[0].isProfileImageNft,

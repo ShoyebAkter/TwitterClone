@@ -21,10 +21,15 @@ const style = {
     footerIcon: `rounded-full text-lg p-2`,
 }
 
-const Post = ({ tweet }) => {
+const Post = ({ displayName,
+    userName,
+    text,
+    avatar,
+    timestamp,
+    isProfileImageNft, }) => {
     const [loveClicked, setLoveClicked] = useState(0);
     const [comment, setComment] = useState(false);
-    const { isProfileImageNft, userName, timeStamp, text } = tweet;
+    const [profileImageLink] = useState(avatar)
     const userNameSlice = `${userName.slice(0, 4)}...${userName.slice(-4)}`
 
     const showReaction = () => {
@@ -35,71 +40,56 @@ const Post = ({ tweet }) => {
     return (
 
         <div className={style.wrapper}>
-            <div>
-                <img
-                    src={tweet.avatar}
-                    alt={tweet.userName}
-                    className={
-                        tweet.isProfileImageNft
-                            ? `${style.profileImage} smallHex`
-                            : style.profileImage
-                    }
-                ></img>
-            </div>
-            <div className={style.postMain}>
-                <div>
-                    <span className={style.headerDetails}>
-                        <span className={style.name}>{tweet.displayName}</span>
-                        {isProfileImageNft && (
-                            <span className={style.verified}>
-                                <BsFillPatchCheckFill />
-                            </span>
-                        )}
-                        <span className={style.handleAndTimeAgo}>
-                            @{userNameSlice} • {format(new Date(timeStamp).getTime())}
-                        </span>
-                    </span>
-                    <div className={style.tweet}>{text}</div>
-                    {loveClicked > 0 &&
-                        <div className="d-flex">
-                            {loveClicked} people <AiOutlineHeart /> your post
-                        </div>
-
-                    }
-                    
-                </div>
-                <div className={style.footer}>
-                    <div onClick={() => {
-                        if(comment===false){
-                            setComment(true)
-                        }
-                        else{
-                            setComment(false)
-                        }
-                    }} className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`} >
-                        <FaRegComment />
-                    </div>
-                    <div  className={`${style.footerIcon} hover:text-[#03ba7c] hover:bg-[#1b393b]`}>
-                        {/* tweet change kora */}
-                        <FaRetweet />
-                    </div>
-                    <div onClick={() => showReaction()} className={`${style.footerIcon} hover:text-[#f91c80] hover:bg-[#39243c]`}>
-                        <AiOutlineHeart />
-                    </div>
-                    <div className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`}>
-                        {/* share post */}
-                        <FiShare />
-                    </div>
-                </div>
-                {
-                        comment &&
-                        <div className={style.commentBar}>
-                            <input type='text' placeholder="write your comment"
-                                className={style.inputBox} />
-                        </div>
-                    }
-            </div>
+      <div>
+        <img
+          src={profileImageLink}
+          alt={userName}
+          className={
+            isProfileImageNft
+              ? `${style.profileImage} smallHex`
+              : style.profileImage
+          }
+        />
+      </div>
+      <div className={style.postMain}>
+        <div>
+          <span className={style.headerDetails}>
+            <span className={style.name}>{displayName}</span>
+            {isProfileImageNft && (
+              <span className={style.verified}>
+                <BsFillPatchCheckFill />
+              </span>
+            )}
+            <span className={style.handleAndTimeAgo}>
+              @{userName} • {format(new Date(timestamp).getTime())}
+            </span>
+          </span>
+          <div className={style.tweet}>{text}</div>
         </div>
+        <div className={style.footer}>
+          <div
+            className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`}
+          >
+            <FaRegComment />
+          </div>
+          <div
+            className={`${style.footerIcon} hover:text-[#03ba7c] hover:bg-[#1b393b]`}
+          >
+            <FaRetweet />
+          </div>
+          <div
+            className={`${style.footerIcon} hover:text-[#f91c80] hover:bg-[#39243c]`}
+          >
+            <AiOutlineHeart />
+          </div>
+          <div
+            className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`}
+          >
+            <FiShare />
+          </div>
+        </div>
+      </div>
+    </div>
     )
 }
 
