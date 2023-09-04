@@ -15,7 +15,7 @@ function Feed() {
     const { tweets } = useContext(TwitterContext)
 
     return (
-        <div className={`${style.wrapper} no-scrollbar`}>
+        <div className={`${style.wrapper} `} style={{"overflowY":"hidden"}}>
       <div className={style.header}>
         <div className={style.headerTitle}>Home</div>
         <BsStars />

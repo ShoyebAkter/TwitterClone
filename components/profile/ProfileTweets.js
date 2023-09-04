@@ -4,7 +4,7 @@ import { useEffect, useContext, useState } from 'react'
 import { TwitterContext } from '../../context/TwitterContext'
 
 const style = {
-  wrapper: `no-scrollbar`,
+  wrapper: `flex-[2] border-r border-l border-[#38444d] overflow-y-scroll`,
   header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
   headerTitle: `text-xl font-bold`,
 }
@@ -36,7 +36,7 @@ const ProfileTweets = () => {
     })
   }, [currentUser])
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} style={{"overflowY":"hidden"}}>
     {tweets?.map((tweet, index) => (
       <Post
         key={index}
